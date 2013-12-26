@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 
 var program = require("commander");
-var s3Synchronize = require("../lib/s3-synchornize");
-var util = require("util");
 
 program
   .version("0.0.1")
@@ -14,6 +12,8 @@ program
   .option("--destinationRegion <region>", "the region of the destination bucket (uses sourceRegion if not supplied)")
   .command("sync <sourceBucket> <destinationBucket>")
     .action(function(sourceBucket, destinationBucket, command) {
+      var s3Synchronize = require("../lib/s3-synchornize");
+      var util = require("util");
 
       var options = {
         "sourceAccessKeyId": program.sourceAccessKeyId,
@@ -36,5 +36,9 @@ program
 
     });
 
-program
-  .parse(process.argv);
+if (process.argv.length === 2) {
+  console.log(program.help());
+}
+else {
+  program.parse(process.argv);
+}
