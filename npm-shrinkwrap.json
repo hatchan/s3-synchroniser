@@ -1,0 +1,39 @@
+{
+  "name": "s3-synchroniser",
+  "version": "0.0.0",
+  "dependencies": {
+    "aws-sdk": {
+      "version": "2.0.0-rc4",
+      "from": "aws-sdk@~2.0.0-rc4",
+      "dependencies": {
+        "xml2js": {
+          "version": "0.2.4",
+          "from": "xml2js@0.2.4",
+          "dependencies": {
+            "sax": {
+              "version": "0.5.8",
+              "from": "sax@>=0.4.2"
+            }
+          }
+        },
+        "xmlbuilder": {
+          "version": "0.4.2",
+          "from": "xmlbuilder@0.4.2",
+          "resolved": "https://registry.npmjs.org/xmlbuilder/-/xmlbuilder-0.4.2.tgz"
+        }
+      }
+    },
+    "commander": {
+      "version": "2.1.0",
+      "from": "commander@~2.1.0"
+    },
+    "underscore": {
+      "version": "1.5.2",
+      "from": "underscore@~1.5.2"
+    },
+    "async": {
+      "version": "0.2.9",
+      "from": "async@~0.2.9"
+    }
+  }
+}
