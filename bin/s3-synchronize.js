@@ -12,7 +12,7 @@ program
   .option("--destinationRegion <region>", "the region of the destination bucket (uses sourceRegion if not supplied)")
   .command("sync <sourceBucket> <destinationBucket>")
     .action(function(sourceBucket, destinationBucket, command) {
-      var s3Synchronize = require("../lib/s3-synchornize");
+      var s3Synchronize = require("../lib/s3-synchronize");
       var util = require("util");
 
       var options = {
