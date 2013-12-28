@@ -22,6 +22,7 @@ program
         "destinationAccessKeyId": program.destinationAccessKeyId,
         "destinationSecretAccessKey": program.destinationSecretAccessKey,
         "destinationRegion": program.destinationRegion,
+        "concurrentUploads": parseInt(process.env.CONCURRENT_UPLOADS, 10);
       };
 
       s3Synchronize.synchronizeS3Buckets(sourceBucket, destinationBucket, options, function(err) {
