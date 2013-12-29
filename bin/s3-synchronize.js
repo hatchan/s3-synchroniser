@@ -10,6 +10,7 @@ program
   .option("--destinationAccessKeyId <accessKeyId>", "the accedKeyId for the destination bucket (uses sourceAccessKeyId if not supplied)")
   .option("--destinationSecretAccessKey <secretAccessKey>", "the secretAccessKey for the destination bucket (uses sourceSecretAccessKey if not supplied)")
   .option("--destinationRegion <region>", "the region of the destination bucket (uses sourceRegion if not supplied)")
+  .option("--prefix <prefix>", "the region of the source bucket (uses 'us-east-1' if not supplied)", "us-east-1")
   .command("sync <sourceBucket> <destinationBucket>")
     .action(function(sourceBucket, destinationBucket, command) {
       var s3Synchronize = require("../lib/s3-synchronize");
@@ -23,6 +24,7 @@ program
         "destinationSecretAccessKey": program.destinationSecretAccessKey,
         "destinationRegion": program.destinationRegion,
         "concurrentUploads": parseInt(process.env.CONCURRENT_UPLOADS, 10),
+        "prefix": program.prefix,
       };
 
       s3Synchronize.synchronizeS3Buckets(sourceBucket, destinationBucket, options, function(err) {
